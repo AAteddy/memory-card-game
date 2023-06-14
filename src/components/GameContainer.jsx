@@ -42,14 +42,16 @@ export const GameContainer = () => {
     const [cards, setCards] = useState(getGameData());
     const [inPlay, setInPlay] = useState([]);
     const [matching, setMatching] = useState(false);
+    const [score, setScore] = useState(0);
+    const [moves, setMoves] = useState(0);
     // inPlay - array of 2 cards
 
     const handleOnClick = (id) => () => {
         if(!matching) {
-                // find the card
-        // set the open to true/false
-        const updatedCards = [...cards];
-        const updatedInPlay = [...inPlay];
+            // find the card
+            // set the open to true/false
+            const updatedCards = [...cards];
+            const updatedInPlay = [...inPlay];
 
         updatedCards.forEach(card => {
             if (card.id === id) {
@@ -66,7 +68,8 @@ export const GameContainer = () => {
 }
     
     useEffect(() => {
-        if (inPlay.length ===2) {
+        if (inPlay.length ===2 && !matching) {
+            setMoves(moves + 1);
             setMatching(true);
             const updatedCards = [...cards];
             if (inPlay[0] === inPlay[1]) {
@@ -79,6 +82,7 @@ export const GameContainer = () => {
                 })
                 setCards(updatedCards);
                 setMatching(false);
+                setScore(score + 1);
                 setInPlay([]);
             } else {
                 // no-match
@@ -106,6 +110,11 @@ export const GameContainer = () => {
     })
 
     return (
-        <GameDisplay cards={cards} onClick={handleOnClick} />
+        <GameDisplay 
+            cards={cards} 
+            onClick={handleOnClick} 
+            score={score}
+            moves={moves}
+        />
     )
 }
