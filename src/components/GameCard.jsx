@@ -13,7 +13,7 @@ export const GameCard = ({ card, onClick }) => {
             </Paper>
             <Paper>
                 <Box                    
-                    sx={{ height: 100, cursor: 'pointer', background: 'white', fontSize: 22 }}
+                    sx={{ height: 100, cursor: 'pointer', background: 'white', fontSize: 72 }}
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
