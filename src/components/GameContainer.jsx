@@ -40,19 +40,20 @@ const getGameData = () => {
 export const GameContainer = () => {
 
     const [cards, setCards] = useState(getGameData());
+    // inPlay - array of 2 cards
     const [inPlay, setInPlay] = useState([]);
     const [matching, setMatching] = useState(false);
     const [score, setScore] = useState(0);
     const [moves, setMoves] = useState(0);
-    // inPlay - array of 2 cards
 
     const handleOnClick = (id) => () => {
         if(!matching) {
-            // find the card
-            // set the open to true/false
+            
             const updatedCards = [...cards];
             const updatedInPlay = [...inPlay];
 
+            // find the card
+            // set the open to true/false
         updatedCards.forEach(card => {
             if (card.id === id) {
                 card.open = true
