@@ -10,15 +10,15 @@ export const GameDisplay = ( { cards, onClick, score, moves }) => {
 
     return (
         <Grid container spacing={1}>         
-                {
-                    cards.map(card => {
-                        return (
-                            <Grid item xs={3} key={card.id}>
-                                <GameCard card={card} onClick={onClick} />
-                            </Grid>
+            {
+                cards.map(card => {
+                    return (
+                        <Grid item xs={3} key={card.id}>
+                            <GameCard card={card} onClick={onClick} />
+                        </Grid>
                         )
-                    })
-                }             
+                })
+            }             
             <Grid item></Grid> 
             <Grid item xs={12}>
                 <>
@@ -29,8 +29,7 @@ export const GameDisplay = ( { cards, onClick, score, moves }) => {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-around'
-                }}       
-                >
+                }}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         Moves: {moves}
                     </Box>   
@@ -39,7 +38,7 @@ export const GameDisplay = ( { cards, onClick, score, moves }) => {
                         Score: {score}
                     </Box>
                 </Container>  
-            </>  
+                </>  
             </Grid> 
         </Grid>
     )
