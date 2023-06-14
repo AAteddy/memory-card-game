@@ -4,14 +4,14 @@ import arrayShuffle from 'array-shuffle';
 
 
 const types = [
-    ' :alarm_clock: ',
-    ' :airplane: ',
-    ' :ambulance: ',
-    ' :anchor: ',
-    ' :baby_bottle: ',
-    ' :basketball: ',
-    ' :carrot: ',
-    ' :banana: ',   
+    ' ⏰   ',
+    ' ✈  ',
+    ' 🚑  ',
+    ' ⚓  ',
+    ' 👶  ',
+    ' 🏀   ',
+    ' 🥕  ',
+    ' 🍌  ',   
 ]
 
 const getGameData = () => {
