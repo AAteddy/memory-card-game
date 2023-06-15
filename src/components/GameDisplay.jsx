@@ -2,7 +2,7 @@ import { Box, Button, Container, Grid } from '@mui/material';
 import React from 'react';
 import { GameCard } from './GameCard';
 
-export const GameDisplay = ( { cards, onClick, score, moves }) => {
+export const GameDisplay = ( { cards, onClick, score, moves, resetGame }) => {
 
     const handleOnClick = () => {
 
@@ -33,7 +33,7 @@ export const GameDisplay = ( { cards, onClick, score, moves }) => {
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         Moves: {moves}
                     </Box>   
-                    <Button>Start Over</Button> 
+                    <Button onClick={resetGame}>Start Over</Button> 
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         Score: {score}
                     </Box>
