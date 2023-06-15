@@ -4,7 +4,7 @@ import arrayShuffle from 'array-shuffle';
 import useSound from 'use-sound';
 import cardFlipSound from '../sounds/card-flip.wav';
 import scoreSound from '../sounds/score.wav';
-
+import resetSound from '../sounds/reset.wav';
 
 const types = [
     ' ⏰   ',
@@ -36,7 +36,6 @@ const getGameData = () => {
     }) 
     
     return gameData;
-
 }
 
 
@@ -50,6 +49,16 @@ export const GameContainer = () => {
     const [moves, setMoves] = useState(0);
     const [playFlipSound] = useSound(cardFlipSound);
     const [playScoreSound] = useSound(scoreSound);
+    const [playResetSound] = useSound(resetSound);
+
+    const resetGame = () => {
+        if (window.confirm('Are you sure')) {
+            playResetSound();
+            setScore(0);
+            setMoves(0);
+            setCards(getGameData());
+        }
+    }
 
     const handleOnClick = (id) => () => {
         if(!matching) {
@@ -121,6 +130,7 @@ export const GameContainer = () => {
         <GameDisplay 
             cards={cards} 
             onClick={handleOnClick} 
+            resetGame={resetGame}
             score={score}
             moves={moves}
         />
